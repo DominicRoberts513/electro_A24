@@ -10,7 +10,7 @@ int posServo;
 
 void setup() {
   // put your setup code here, to run once:
-  Serial.begin(9600);
+  Serial.begin(57600);
   monServo.attach(pinServo);
   pinMode(pinPot, INPUT);
 }
@@ -24,9 +24,11 @@ void loop() {
   //   monServo.write(180 - i);
   // }
   potVal = analogRead(pinPot);
+  
+  Serial.print("/capteur1 ");
   Serial.println(potVal);
-  posServo = map(potVal, 0, 1024, 0, 180);
-  monServo.write(posServo);
+  // posServo = map(potVal, 0, 1024, 0, 180);
+  // monServo.write(posServo);
 
   // monServo.write(potVal);
 }
